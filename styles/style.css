@@ -1,0 +1,772 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #fff7f1;
+}
+.container h1 {
+  text-align: center;
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+}
+.cardcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+  gap: 40px;
+}
+.cardcontainer h2 {
+  color: red;
+  font-family: "Bebas Neue", cursive;
+  font-weight: bold;
+}
+.card {
+  width: 336px;
+  height: 336px;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: left;
+  gap: 5px;
+  list-style: none;
+  border-radius: 20px;
+  background: rgb(74, 1, 1);
+  background: linear-gradient(
+    90deg,
+    rgba(74, 1, 1, 1) 0%,
+    rgba(98, 16, 16, 1) 100%
+  );
+  transition: linear, 0.5s;
+}
+.card:hover {
+  transform: scale(1.1);
+}
+.card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  aspect-ratio: 1;
+  opacity: 70%;
+}
+.card h3 {
+  font-weight: 800;
+  font-family: "Bebas Neue", sans-serif;
+  margin: -95px 0 0 0;
+  color: #fff7f1;
+  font-size: 2.5rem;
+  padding: 0 0 0px 20px;
+  opacity: 99%;
+}
+.card li,
+a {
+  font-family: "Bebas Neue", cursive;
+  font-size: 0.8rem;
+  font-weight: 600;
+  list-style: none;
+  margin: 0;
+  color: #fff7f1;
+  padding: 0 0 0px 20px;
+  opacity: 99%;
+}
+.crossbtnlink {
+  padding: 0;
+}
+.card a {
+  text-decoration: underline;
+  transition: 0.6s ease-in-out;
+}
+.card a:hover {
+  color: #ff6f00;
+}
+#jerseyNumber {
+  font-family: MontserratSemiBold, Helvetica, sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.header input {
+  width: 12vw;
+  height: 5vh;
+  padding: 1vw;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #1a1a1a;
+  outline: none;
+}
+/* playerprofile section */
+.background {
+  background-image: radial-gradient(
+      circle at 48% 48%,
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(#1a1a1a, #1a1a1a);
+  height: 105vh;
+  width: 100%;
+  transform: scaleX(230px);
+}
+.personaldetails2 {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.personaldetailsname {
+  display: flex;
+}
+.buttondiv button {
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  border-radius: 15px;
+  color: rgb(255, 66, 66);
+  background-color: #2a2a2a;
+  transition: linear 0.5s;
+}
+.buttondiv button:hover {
+  background-color: white;
+}
+.personaldetailsname :nth-child(1) {
+  font-family: BebasNeueBook, Helvetica, sans-serif;
+  color: #fff;
+  position: relative;
+  padding-right: 8px;
+  font-size: 6.25rem;
+  font-weight: lighter;
+}
+.personaldetailsname :nth-child(2) {
+  text-transform: uppercase;
+  font-family: MontserratRegular, Helvetica, sans-serif;
+  color: #fff;
+  font-size: 2.5rem;
+  width: 30px;
+}
+.playerprofile {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+.playerpic {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  gap: 140px;
+}
+.playerpic img {
+  width: 35%;
+  margin-top: -260px;
+  height: 90vh;
+  object-fit: contain;
+  aspect-ratio: 1;
+}
+.playerpic blockquote {
+  font-family: "Bebas Neue", sans-serif;
+  width: 25%;
+  font-size: 2.25rem;
+  color: #fff;
+  opacity: 75%;
+  font-family: Oswald;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+.stats {
+  list-style: none;
+  color: #fff;
+}
+.stats li:nth-child(even) {
+  font-family: BebasNeueBook, Helvetica, sans-serif;
+  font-size: 3rem;
+  color: #fff;
+  width: 100%;
+  float: left;
+  margin-bottom: 30px;
+}
+.stats li:nth-child(odd) {
+  font-family: SourceSansProRegular, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  color: #fff;
+  width: 100%;
+  float: left;
+  margin-bottom: 2px;
+  word-wrap: break-word;
+}
+.btn3 {
+  font-family: SourceSansProRegular, Helvetica, sans-serif;
+  font-size: 1rem;
+  height: 50px;
+  width: 120px;
+  border-radius: 50px;
+  font-weight: 100;
+  transition: linear 0.5s;
+}
+.btn3:hover {
+  background-color: white;
+  color: darkred;
+}
+.playerdetails {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.biography,
+.biographymain {
+  display: flex;
+  gap: 10px;
+  margin: auto;
+  width: 80%;
+}
+.biographymain {
+  flex-direction: column;
+}
+.biographymain h2 {
+  font-family: MontserratSemiBold, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  opacity: 80%;
+}
+.biographymain p {
+  font-family: SourceSansProLight, Helvetica, sans-serif;
+  color: #2a2a2a;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  opacity: 80%;
+  border-bottom: 0.5px solid #2a2a2a;
+  padding-bottom: 30px;
+}
+.biographyinfo {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+.positiondiv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-right: 1px solid #717171;
+  padding-right: 230px;
+}
+.biography h3 {
+  font-family: MontserratBold, Helvetica, sans-serif;
+  color: #717171;
+  font-size: 14px;
+  font-size: 1.1rem;
+}
+.biography p {
+  font-family: BebasNeueBold, Helvetica, sans-serif;
+  color: #c70101;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.ratingdiv {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #717171;
+  padding-right: 230px;
+  gap: 15px;
+}
+.jerseydiv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+@media (max-width: 1030px) {
+  .background {
+    height: 143vh;
+  }
+
+  .playerdetails {
+    gap: 0px;
+  }
+  .btndiv {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top: -40px;
+  }
+  .buttondiv {
+    width: 280px;
+  }
+  .playerpic {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    gap: 0px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .playerpic img {
+    width: 55%;
+    margin-top: -102px;
+    height: 96vh;
+    margin-bottom: 10px;
+    object-fit: contain;
+  }
+  .playerpic blockquote {
+    display: block;
+    font-size: 2rem;
+  }
+
+  .personaldetailsname :nth-child(1) {
+    font-size: 7.25rem;
+  }
+  .buttondiv button {
+    width: 65px;
+    height: 65px;
+    font-size: 30px;
+  }
+  .personaldetails2 :nth-child(2) {
+    padding-right: 8px;
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+  .personaldetails2 :nth-child(3) {
+    font-size: 1.5rem;
+    width: 30px;
+  }
+  .stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .stats li:nth-child(even) {
+    font-family: BebasNeueBook, Helvetica, sans-serif;
+    font-size: 3rem;
+    color: #fff;
+  }
+  .stats li:nth-child(odd) {
+    font-size: 1.6rem;
+  }
+  .personaldetails2 {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+  .biographyinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  .biographymain h2 {
+    font-size: 2.2rem;
+  }
+  .biographymain p {
+    font-size: 1.7rem;
+  }
+  .biography h3 {
+    font-size: 1.8rem;
+  }
+  .biography p {
+    font-size: 2.3rem;
+  }
+  .btn3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  @media only screen and (orientation: portrait) {
+    .playerpic {
+      flex-direction: column;
+    }
+    .playerpic blockquote {
+      display: none;
+    }
+    .playerpic img {
+      height: 65vh;
+    }
+    .background {
+      height: 110vh;
+    }
+  }
+}
+@media (max-width: 932px) {
+  .container h1 {
+    margin-bottom: 20px;
+  }
+  .header input {
+    width: 18vw;
+    height: 5vh;
+    padding: 1vw;
+  }
+  /* for profile page */
+  .background {
+    height: 143vh;
+  }
+  .playerdetails {
+    gap: 0px;
+  }
+  .btndiv {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+  }
+  .btn3 {
+    width: 140px;
+    height: 60px;
+    font-size: 1.4rem;
+  }
+  .buttondiv {
+    width: 280px;
+  }
+  .buttondiv button {
+    width: 75px;
+    height: 75px;
+    font-size: 40px;
+  }
+  .playerpic {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .playerpic img {
+    width: 80%;
+    margin-top: -102px;
+    height: 96vh;
+    margin-bottom: 10px;
+  }
+  .playerpic blockquote {
+    display: none;
+  }
+  .personaldetails2 {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+  .personaldetails2 :nth-child(2) {
+    font-size: 2rem;
+    font-weight: lighter;
+  }
+  .personaldetails2 :nth-child(3) {
+    font-size: 1.5rem;
+    width: 30px;
+  }
+  .stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .stats li:nth-child(odd) {
+    font-family: SourceSansProRegular, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  .stats li:nth-child(even) {
+    font-family: BebasNeueBook, Helvetica, sans-serif;
+    font-size: 3rem;
+    color: #fff;
+  }
+  .biographyinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  @media only screen and (orientation: landscape) {
+    .personaldetailsname :nth-child(2) {
+      font-size: 2.3rem;
+    }
+    .personaldetails2 {
+      width: 90%;
+      align-items: flex-start;
+    }
+    .buttondiv button {
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+    }
+    .btn3 {
+      width: 120px;
+      height: 50px;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    .playerpic {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      gap: 0px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    .playerpic blockquote {
+      font-size: 2rem;
+      display: block;
+    }
+    .background {
+      height: 180vh;
+    }
+  }
+}
+@media (max-width: 790px) {
+  .container h1 {
+    margin-bottom: 20px;
+  }
+  .header input {
+    width: 18vw;
+    height: 5vh;
+    padding: 1vw;
+  }
+  /* for profile page */
+  .background {
+    height: 143vh;
+  }
+
+  .playerdetails {
+    gap: 0px;
+  }
+  .btndiv {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top: -40px;
+  }
+  .buttondiv {
+    width: 0px;
+  }
+  .btndiv button {
+    font-size: 1.3rem;
+  }
+  .playerpic {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .playerpic img {
+    width: 80%;
+    margin-top: -102px;
+    height: 96vh;
+    margin-bottom: 10px;
+  }
+
+  .personaldetails2 {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+  .personaldetailsname :nth-child(1) {
+    font-size: 4.25rem;
+  }
+  .personaldetailsname :nth-child(2) {
+    font-size: 2.5rem;
+    width: 30px;
+    font-weight: bolder;
+  }
+  .stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .stats li:nth-child(odd) {
+    font-family: SourceSansProRegular, Helvetica, sans-serif;
+    font-size: 0.6rem;
+    color: #fff;
+  }
+  .buttondiv button {
+    width: 75px;
+    height: 75px;
+    font-size: 40px;
+  }
+  .personaldetailsname {
+    width: 30%;
+  }
+  .stats li:nth-child(even) {
+    font-family: BebasNeueBook, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+  }
+  .biographyinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  @media only screen and (orientation: landscape) {
+    .personaldetailsname :nth-child(2) {
+      font-size: 2rem;
+    }
+
+    .buttondiv button {
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+    }
+    .btndiv button {
+      width: 120px;
+      height: 50px;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .playerpic {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      gap: 0px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    .playerpic blockquote {
+      font-size: 1.4rem;
+      display: block;
+    }
+    .background {
+      height: 160vh;
+    }
+    .biography p {
+      font-size: 2rem;
+    }
+    .biographymain p {
+      font-size: 1.4rem;
+    }
+    .personaldetails2 {
+      width: 90%;
+      align-items: flex-start;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .cardcontainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+  }
+  .container h1 {
+    font-size: 1.5rem;
+  }
+  .card {
+    width: 271px;
+    height: 420px;
+  }
+  .card h3 {
+    font-size: 1.1rem;
+  }
+  .card li {
+    font-size: 0.8rem;
+  }
+  .header input {
+    font-size: 10px;
+    padding: 5vw;
+  }
+  /* for profile page */
+  .background {
+    height: 105vh;
+  }
+  .buttondiv button {
+    width: 45px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .playerdetails {
+    gap: 0px;
+  }
+  .btndiv {
+    display: flex;
+    margin: auto;
+  }
+  .buttondiv {
+    width: 0px;
+    margin-bottom: 10px;
+  }
+  .playerpic {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .playerpic img {
+    width: 80%;
+    height: 65vh;
+    margin-top: -100px;
+    margin-bottom: 0px;
+    object-fit: contain;
+  }
+  .playerpic blockquote {
+    display: none;
+  }
+  .personaldetails2 {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .personaldetailsname :nth-child(1) {
+    padding-right: 8px;
+    font-size: 3.25rem;
+
+    font-weight: lighter;
+  }
+  .personaldetailsname :nth-child(2) {
+    font-size: 1.4rem;
+  }
+  .stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 10px;
+    width: 90%;
+  }
+  .stats li:nth-child(odd) {
+    font-family: SourceSansProRegular, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: #fff;
+  }
+  .btn3 {
+    margin-bottom: 20px;
+  }
+  .stats li:nth-child(even) {
+    font-family: BebasNeueBook, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  .biographyinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  /* .biography h3{
+      30px;
+  } */
+  .btndiv button {
+    width: 100px;
+    height: 50px;
+    font-size: 0.9rem;
+  }
+}

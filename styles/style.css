@@ -247,10 +247,10 @@ a {
   padding-bottom: 30px;
 }
 .biographyinfo {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-bottom: 50px;
 }
 .positiondiv {
   display: flex;

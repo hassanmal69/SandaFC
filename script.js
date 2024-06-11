@@ -1,30 +1,158 @@
 import { peopleData } from "./data.js";
-// import {nextpage }from "./player.js"
+// import { nextpage } from "./player.js";
+
 const container = document.querySelector(".container");
-const playercontainer = document.querySelector(".playerprofile");
+const playerContainer = document.querySelector(".playerprofile");
 const cardContainer = document.createElement("div");
 const input = document.createElement("input");
 input.placeholder = "Search Here";
-const heaader = document.createElement("div");
-const headergen = () => {
-  heaader.classList.add("header");
+const header = document.createElement("div");
+
+const headerGen = () => {
+  header.classList.add("header");
   const h1 = document.createElement("h1");
   h1.innerText = "The Faces Behind the Jerseys";
   input.classList.add("input");
   container.appendChild(h1);
-  heaader.appendChild(input);
-  container.appendChild(heaader);
+  header.appendChild(input);
+  container.appendChild(header);
 };
-const cardsgen = () => {
+
+const crad = (e) => {
+  container.style.display = "none";
+  const background = document.createElement("div");
+  background.classList.add("background");
+  const playerProfile = document.createElement("div");
+  playerProfile.classList.add("playerprofile");
+  const playerDetails = document.createElement("div");
+  playerDetails.classList.add("playerdetails");
+
+  const playerName = document.createElement("h1");
+  playerName.innerText = e.name;
+  const shirtNo = document.createElement("h1");
+  shirtNo.innerText = e.jerseyNumber;
+  const btnDiv = document.createElement("div");
+  btnDiv.classList.add("btndiv");
+  const btn3 = document.createElement("button");
+  btn3.innerText = "Buy Shirt";
+  btn3.classList.add("btn3");
+
+  const playerPic = document.createElement("div");
+  playerPic.classList.add("playerpic");
+  const h3 = document.createElement("blockquote");
+  h3.innerText = '"' + e.quote + '"';
+  playerPic.appendChild(h3);
+  const bgPic = document.createElement("img");
+  bgPic.src = e.bgpic;
+  const stats = document.createElement("div");
+  stats.classList.add("stats");
+
+  const ul = document.createElement("ul");
+  const statsItems = [
+    "AGE",
+    e.age,
+    "APPEARANCES",
+    e.appearances,
+    e.cleansheets ? "CLEAN SHEETS" : "GOALS",
+    e.goals,
+  ];
+
+  statsItems.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.innerText = item;
+    stats.appendChild(li);
+  });
+
+  const personalDetails = document.createElement("div");
+  personalDetails.classList.add("personaldetails");
+  const buttonDiv = document.createElement("div");
+  buttonDiv.classList.add("buttondiv");
+  const personalDetails2 = document.createElement("div");
+  personalDetails2.classList.add("personaldetails2");
+  const personalDetailsName = document.createElement("div");
+  personalDetailsName.classList.add("personaldetailsname");
+  const crossBtnLink = document.createElement("a");
+  crossBtnLink.classList.add("crossbtnlink");
+  const crossBtn = document.createElement("button");
+  crossBtn.innerHTML = `<i class="ri-xrp-line"></i>`;
+  crossBtnLink.href = "./main.html";
+  crossBtnLink.appendChild(crossBtn);
+  buttonDiv.appendChild(crossBtnLink);
+  personalDetails.appendChild(buttonDiv);
+  playerPic.appendChild(bgPic);
+  personalDetailsName.appendChild(shirtNo);
+  personalDetailsName.appendChild(playerName);
+  btnDiv.appendChild(btn3);
+  personalDetails2.appendChild(personalDetailsName);
+  personalDetails2.appendChild(btnDiv);
+  playerProfile.appendChild(playerDetails);
+  playerProfile.appendChild(playerPic);
+  playerDetails.appendChild(personalDetails);
+  playerDetails.appendChild(personalDetails2);
+  playerPic.appendChild(stats);
+  background.appendChild(playerProfile);
+  playerContainer.appendChild(background);
+
+  const biography = document.createElement("div");
+  biography.classList.add("biography");
+  const h2 = document.createElement("h2");
+  const biographyText = document.createElement("p");
+  h2.innerText = "Biography";
+  biographyText.innerText = e.biography;
+  const biographyInfo = document.createElement("div");
+  biographyInfo.classList.add("biographyinfo");
+
+  const positionDiv = document.createElement("div");
+  positionDiv.classList.add("positiondiv");
+  const h33 = document.createElement("h3");
+  h33.innerText = "POSITION";
+  const positionBio = document.createElement("p");
+  positionBio.innerText = e.position;
+
+  const ratingDiv = document.createElement("div");
+  ratingDiv.classList.add("ratingdiv");
+  const ratingDivH3 = document.createElement("h3");
+  ratingDivH3.innerText = "AVG RATING";
+  const ratingBio = document.createElement("p");
+  ratingBio.innerText = e.rating;
+  ratingDiv.appendChild(ratingDivH3);
+  ratingDiv.appendChild(ratingBio);
+
+  positionDiv.appendChild(h33);
+  positionDiv.appendChild(positionBio);
+
+  const biographyMain = document.createElement("div");
+  biographyMain.classList.add("biographymain");
+  biographyMain.appendChild(h2);
+  biographyMain.appendChild(biographyText);
+
+  const jerseyDiv = document.createElement("div");
+  jerseyDiv.classList.add("jerseydiv");
+  const jerseyDivH3 = document.createElement("h3");
+  jerseyDivH3.innerText = "JERSEY NUMBER";
+  const jerseyDivP = document.createElement("p");
+  jerseyDivP.innerText = e.jerseyNumber;
+  jerseyDiv.appendChild(jerseyDivH3);
+  jerseyDiv.appendChild(jerseyDivP);
+
+  biographyInfo.appendChild(positionDiv);
+  biographyInfo.appendChild(ratingDiv);
+  biographyInfo.appendChild(jerseyDiv);
+
+  biography.appendChild(biographyInfo);
+  playerContainer.appendChild(biographyMain);
+  playerContainer.appendChild(biography);
+};
+const cardsGen = () => {
   cardContainer.classList.add("cardcontainer");
   peopleData.forEach((e) => {
     const card = document.createElement("div");
     card.classList.add("card");
-    const insidecard = document.createElement("div");
+    const insideCard = document.createElement("div");
     const image = document.createElement("img");
     image.src = e.image;
     card.appendChild(image);
-    insidecard.classList.add("insidecard");
+    insideCard.classList.add("insidecard");
     const name = document.createElement("h3");
     name.innerText = e.name;
     const age = document.createElement("li");
@@ -41,158 +169,34 @@ const cardsgen = () => {
     position.innerText = "Favourite Position: " + e.position;
     const rating = document.createElement("li");
     rating.innerText = "Rating out of 10: " + e.rating;
-    const crad=()=>{
-      container.style.display = "none";
-      const background = document.createElement("div");
-      background.classList.add("background");
-      const playerprofile = document.createElement("div");
-      playerprofile.classList.add("playerprofile");
-      const playerdetails = document.createElement("div");
-      playerdetails.classList.add("playerdetails");
-      
-      const playername = document.createElement("h1");
-      playername.innerText = e.name;
-      const shirtno = document.createElement("h1");
-      shirtno.innerText = e.jerseyNumber;
-      const btndiv = document.createElement("div");
-      btndiv.classList.add("btndiv");
-      const btn3 = document.createElement("button");
-      btn3.innerText = "Buy Shirt";
-      btn3.classList.add("btn3");
-      //div for pic and quote
-      const playerpic = document.createElement("div");
-      playerpic.classList.add("playerpic");
-      const h3 = document.createElement("blockquote");
-      h3.innerText = '"' + e.quote + '"';
-      playerpic.appendChild(h3);
-      const bgpic = document.createElement("img");
-      bgpic.src = e.bgpic;
-      const stats = document.createElement("div");
-      stats.classList.add("stats");
-      const ul = document.createElement("ul");
-      for (let i = 0; i < 7; i++) {
-        const li = document.createElement("li");
-        if (i == 0) {
-          li.innerText = "AGE";
-        }
-        if (i == 1) {
-          li.innerText = e.age;
-        }
-        if (i == 2) {
-          li.innerText = "APPEARANCES";
-        }
-        if (i == 3) {
-          li.innerText = e.appearances;
-        }
-        if (i == 4) {
-          if (e.cleansheets) {
-            li.innerText = "CLEAN SHEETS";
-          } else {
-            li.innerText = "GOALS";
-          }
-        }
-        if (i == 5) {
-          li.innerText = e.goals;
-        }
-        stats.appendChild(li);
-      }
-      const personaldetails = document.createElement("div");
-      personaldetails.classList.add("personaldetails");
-      //now for the cross button
-      const buttondiv = document.createElement("div");
-      buttondiv.classList.add("buttondiv");
-      const personaldetails2=document.createElement("div");
-      personaldetails2.classList.add("personaldetails2");
-      const personaldetailsname=document.createElement("div");
-      personaldetailsname.classList.add("personaldetailsname");
-      const crossbtnlink = document.createElement("a");
-      crossbtnlink.classList.add("crossbtnlink");
-      const crossbtn = document.createElement("button");
-      crossbtn.innerHTML = `<i class="ri-xrp-line"></i>`;
-      crossbtnlink.href = "./index.html";
-      crossbtnlink.appendChild(crossbtn);
-      buttondiv.appendChild(crossbtnlink);
-      personaldetails.appendChild(buttondiv);
-      playerpic.appendChild(bgpic);
-      personaldetailsname.appendChild(shirtno);
-      personaldetailsname.appendChild(playername);
-      btndiv.appendChild(btn3);
-      personaldetails2.appendChild(personaldetailsname);
-      personaldetails2.appendChild(btndiv);
-      playerprofile.appendChild(playerdetails);
-      playerprofile.appendChild(playerpic);
-      playerdetails.appendChild(personaldetails);
-      playerdetails.appendChild(personaldetails2);
-      playerpic.appendChild(stats);
-      background.appendChild(playerprofile);
-      playercontainer.appendChild(background);
-      //for biography
-      const biography = document.createElement("div");
-      biography.classList.add("biography");
-      const h2 = document.createElement("h2");
-      const biographytext = document.createElement("p");
-      h2.innerText = "Biography";
-      biographytext.innerText = e.biography;
-      const biographyinfo = document.createElement("div");
-      biographyinfo.classList.add("biographyinfo");
-      const positiondiv = document.createElement("div");
-      positiondiv.classList.add("positiondiv");
-      const h33 = document.createElement("h3");
-      h33.innerText = "POSITION";
-      const positionbio = document.createElement("p");
-      positionbio.innerText = e.position;
-      const ratingdiv = document.createElement("div");
-      ratingdiv.classList.add("ratingdiv");
-      const ratingdivh3 = document.createElement("h3");
-      ratingdivh3.innerText = "AVG RATING";
-      ratingdiv.appendChild(ratingdivh3);
-      const ratingbio = document.createElement("p");
-      ratingbio.innerText = e.rating;
-      ratingdiv.appendChild(ratingbio);
-      positiondiv.appendChild(h33);
-      positiondiv.appendChild(positionbio);
-      const biographymain = document.createElement("div");
-      biographymain.classList.add("biographymain");
-      biographymain.appendChild(h2);
-      biographymain.appendChild(biographytext);
-      const jerseydiv = document.createElement("div");
-      jerseydiv.classList.add("jerseydiv");
-      const jerseydivh3 = document.createElement("h3");
-      jerseydivh3.innerText = "JERSEY NUMBER";
-      const jerseydivp = document.createElement("p");
-      jerseydivp.innerText = e.jerseyNumber;
-      jerseydiv.appendChild(jerseydivh3);
-      jerseydiv.appendChild(jerseydivp);
-      biographyinfo.appendChild(positiondiv);
-      biographyinfo.appendChild(ratingdiv);
-      biographyinfo.appendChild(jerseydiv);
-      // biography.appendChild(biographymain)
-      biography.appendChild(biographyinfo);
-      playercontainer.appendChild(biographymain);
-      playercontainer.appendChild(biography);
-  }
-  card.addEventListener('click', crad)
-    jerseyNumber.id = "jerseyNumber";
+    card.addEventListener("click", () => crad(e));
     card.appendChild(name);
     card.appendChild(jerseyNumber);
     cardContainer.appendChild(card);
-    cardContainer.appendChild(card);
-    input.addEventListener("input", ()=>{
-      cardContainer.innerHTML = "";
-      let inputvalue2 = input.value.toLowerCase().trim();
-
-      peopleData.filter((f) => f.name.toLowerCase().includes(inputvalue2))
-                .forEach((u) => {
-                  card.innerHTML = `
-                   <img src="${u.image}" alt="${u.name}">
-                    <h3>${u.name}</h3>
-                    <li>${u.jerseyNumber}</li>
-                  `;
-                  cardContainer.appendChild(card);
-    });
   });
+
+  input.addEventListener("input", () => {
+    cardContainer.innerHTML = "";
+    const inputvalue2 = input.value.toLowerCase().trim();
+
+    peopleData
+      .filter((f) => f.name.toLowerCase().includes(inputvalue2))
+      .forEach((u) => {
+        const card = document.createElement("div"); // Create a new card for each item
+        card.classList.add("card"); // Optional: Add a class to the card for styling
+        card.innerHTML = `
+                  <img src="${u.image}" alt="${u.name}">
+                  <h3>${u.name}</h3>
+                  <li>${u.jerseyNumber}</li>
+                `;
+        card.addEventListener("click", () => crad(u)); 
+        cardContainer.appendChild(card);
+      });
+    container.appendChild(cardContainer); 
+  });
+
   container.appendChild(cardContainer);
-});
-}
-headergen();
-cardsgen();
+};
+
+headerGen();
+cardsGen();

@@ -769,4 +769,7 @@ a {
     height: 50px;
     font-size: 0.9rem;
   }
+  .biographymain p{
+    font-size: 1rem;
+  }
 }

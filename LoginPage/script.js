@@ -63,7 +63,7 @@ loginBtn.classList.add("btn");
 // Append the login button to a link element
 const loginLinkContainer = document.createElement('a');
 loginLinkContainer.innerText="Login";
-loginLinkContainer.href = "../index.html";
+loginLinkContainer.href = "../main.html";
 loginBtn.appendChild(loginLinkContainer);
 loginLinkContainer.classList.add("btntag");
 

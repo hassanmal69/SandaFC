@@ -54,7 +54,7 @@ logSection.classList.add('logsection');
 // Create and configure the register link
 const registerLink = document.createElement('a');
 registerLink.innerText = "CLICK TO REGISTER";
-registerLink.href = "../RegistrationPage/index.html";
+registerLink.href = "../reg.html";
 
 // Create and configure the login button
 const loginBtn = document.createElement('button');

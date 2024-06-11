@@ -1,145 +1,202 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const page = document.querySelector('.page-container');
-    const formContainer = document.querySelector('.form-container');
-    const formSubmission = document.querySelector('.form-submission');
+import { peopleData } from "./data.js";
+// import { nextpage } from "./player.js";
 
-    const column1 = document.createElement('div');
-    column1.classList.add('column-1');
-    const heading = document.createElement('div');
-    heading.classList.add('heading');
-    const head = document.createElement('h1');
-    head.textContent = "SignUp";
+const container = document.querySelector(".container");
+const playerContainer = document.querySelector(".playerprofile");
+const cardContainer = document.createElement("div");
+const input = document.createElement("input");
+input.placeholder = "Search Here";
+const header = document.createElement("div");
 
-    const column2 = document.createElement('div');
-    column2.classList.add('column-2');
+const headerGen = () => {
+  header.classList.add("header");
+  const h1 = document.createElement("h1");
+  h1.innerText = "The Faces Behind the Jerseys";
+  input.classList.add("input");
+  container.appendChild(h1);
+  header.appendChild(input);
+  container.appendChild(header);
+};
 
-    heading.appendChild(head);
-    formSubmission.appendChild(heading); // Append the heading to the form
+const crad = (e) => {
+  container.style.display = "none";
+  const background = document.createElement("div");
+  background.classList.add("background");
+  const playerProfile = document.createElement("div");
+  playerProfile.classList.add("playerprofile");
+  const playerDetails = document.createElement("div");
+  playerDetails.classList.add("playerdetails");
 
-    function createField(holder, logoSrc, pattern, patternDisplay, inputType, fieldName) {
-        const fieldcontainer = document.createElement('div');
-        fieldcontainer.classList.add('fieldcontainer');
+  const playerName = document.createElement("h1");
+  playerName.innerText = e.name;
+  const shirtNo = document.createElement("h1");
+  shirtNo.innerText = e.jerseyNumber;
+  const btnDiv = document.createElement("div");
+  btnDiv.classList.add("btndiv");
+  const btn3 = document.createElement("button");
+  btn3.innerText = "Buy Shirt";
+  btn3.classList.add("btn3");
 
-        const field = document.createElement('div');
-        field.classList.add('field');
+  const playerPic = document.createElement("div");
+  playerPic.classList.add("playerpic");
+  const h3 = document.createElement("blockquote");
+  h3.innerText = '"' + e.quote + '"';
+  playerPic.appendChild(h3);
+  const bgPic = document.createElement("img");
+  bgPic.src = e.bgpic;
+  const stats = document.createElement("div");
+  stats.classList.add("stats");
 
-        const logo = document.createElement('img');
-        logo.src = logoSrc;
-        const input = document.createElement('input');
-        input.setAttribute('type', inputType);
-        input.setAttribute('placeholder', holder);
-        input.setAttribute('name', fieldName); // Set the name attribute
-        input.dataset.pattern = pattern; // Store the pattern in a data attribute
+  const ul = document.createElement("ul");
+  const statsItems = [
+    "AGE",
+    e.age,
+    "APPEARANCES",
+    e.appearances,
+    e.cleansheets ? "CLEAN SHEETS" : "GOALS",
+    e.goals,
+  ];
 
-        field.appendChild(logo);
-        field.appendChild(input);
-        fieldcontainer.appendChild(field);
+  statsItems.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.innerText = item;
+    stats.appendChild(li);
+  });
 
-        const errorElement = document.createElement('div');
-        errorElement.classList.add('error-message');
-        errorElement.textContent = `${patternDisplay}`;
-        errorElement.style.display = 'none'; // Initially hidden
-        fieldcontainer.appendChild(errorElement);
+  const personalDetails = document.createElement("div");
+  personalDetails.classList.add("personaldetails");
+  const buttonDiv = document.createElement("div");
+  buttonDiv.classList.add("buttondiv");
+  const personalDetails2 = document.createElement("div");
+  personalDetails2.classList.add("personaldetails2");
+  const personalDetailsName = document.createElement("div");
+  personalDetailsName.classList.add("personaldetailsname");
+  const crossBtnLink = document.createElement("a");
+  crossBtnLink.classList.add("crossbtnlink");
+  const crossBtn = document.createElement("button");
+  crossBtn.innerHTML = `<i class="ri-xrp-line"></i>`;
+  crossBtnLink.href = "./main.html";
+  crossBtnLink.appendChild(crossBtn);
+  buttonDiv.appendChild(crossBtnLink);
+  personalDetails.appendChild(buttonDiv);
+  playerPic.appendChild(bgPic);
+  personalDetailsName.appendChild(shirtNo);
+  personalDetailsName.appendChild(playerName);
+  btnDiv.appendChild(btn3);
+  personalDetails2.appendChild(personalDetailsName);
+  personalDetails2.appendChild(btnDiv);
+  playerProfile.appendChild(playerDetails);
+  playerProfile.appendChild(playerPic);
+  playerDetails.appendChild(personalDetails);
+  playerDetails.appendChild(personalDetails2);
+  playerPic.appendChild(stats);
+  background.appendChild(playerProfile);
+  playerContainer.appendChild(background);
 
-        input.addEventListener('input', function() {
-            if (input.value.match(new RegExp(pattern))) {
-                input.style.borderColor = 'initial'; // Reset border color if valid
-                errorElement.style.display = 'none'; // Hide error message if valid
-            } else {
-                input.style.borderColor = 'red'; // Set border color to red if invalid
-                errorElement.style.display = 'block'; // Show error message if invalid
-            }
-        });
+  const biography = document.createElement("div");
+  biography.classList.add("biography");
+  const h2 = document.createElement("h2");
+  const biographyText = document.createElement("p");
+  h2.innerText = "Biography";
+  biographyText.innerText = e.biography;
+  const biographyInfo = document.createElement("div");
+  biographyInfo.classList.add("biographyinfo");
 
-        return fieldcontainer;
-    }
+  const positionDiv = document.createElement("div");
+  positionDiv.classList.add("positiondiv");
+  const h33 = document.createElement("h3");
+  h33.innerText = "POSITION";
+  const positionBio = document.createElement("p");
+  positionBio.innerText = e.position;
 
-    const field1 = createField('Your Name', './images-icons/icons8-user-24.png', '.*', 'e.g. John Doe', 'text', 'name');
-    column1.appendChild(field1);
+  const ratingDiv = document.createElement("div");
+  ratingDiv.classList.add("ratingdiv");
+  const ratingDivH3 = document.createElement("h3");
+  ratingDivH3.innerText = "AVG RATING";
+  const ratingBio = document.createElement("p");
+  ratingBio.innerText = e.rating;
+  ratingDiv.appendChild(ratingDivH3);
+  ratingDiv.appendChild(ratingBio);
 
-    const field2 = createField('Your Email', './images-icons/icons8-email-24.png', '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$', 'e.g. john@example.com', 'email', 'email');
-    column1.appendChild(field2);
+  positionDiv.appendChild(h33);
+  positionDiv.appendChild(positionBio);
 
-    const field3 = createField('Your Age', './images-icons/icons8-age-24.png', '^[0-9]{1,3}$', 'e.g. 25', 'text', 'age');
-    column1.appendChild(field3);
+  const biographyMain = document.createElement("div");
+  biographyMain.classList.add("biographymain");
+  biographyMain.appendChild(h2);
+  biographyMain.appendChild(biographyText);
 
-    const field4 = createField('Your Position', './images-icons/icons8-soccer-ball-24.png', '.*', 'e.g. CF,RM,LM', 'text', 'position');
-    column1.appendChild(field4);
+  const jerseyDiv = document.createElement("div");
+  jerseyDiv.classList.add("jerseydiv");
+  const jerseyDivH3 = document.createElement("h3");
+  jerseyDivH3.innerText = "JERSEY NUMBER";
+  const jerseyDivP = document.createElement("p");
+  jerseyDivP.innerText = e.jerseyNumber;
+  jerseyDiv.appendChild(jerseyDivH3);
+  jerseyDiv.appendChild(jerseyDivP);
 
-    const field5 = createField('Jersey No.', './images-icons/icons8-jersey-24.png', '^[0-9]{1,2}$', 'e.g. 10', 'number', 'jersey');
-    column2.appendChild(field5);
+  biographyInfo.appendChild(positionDiv);
+  biographyInfo.appendChild(ratingDiv);
+  biographyInfo.appendChild(jerseyDiv);
 
-    const field6 = createField('Rating', './images-icons/icons8-rating-24.png', '^[0-5]$', '0-5', 'number', 'rating');
-    column2.appendChild(field6);
+  biography.appendChild(biographyInfo);
+  playerContainer.appendChild(biographyMain);
+  playerContainer.appendChild(biography);
+};
+const cardsGen = () => {
+  cardContainer.classList.add("cardcontainer");
+  peopleData.forEach((e) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    const insideCard = document.createElement("div");
+    const image = document.createElement("img");
+    image.src = e.image;
+    card.appendChild(image);
+    insideCard.classList.add("insidecard");
+    const name = document.createElement("h3");
+    name.innerText = e.name;
+    const age = document.createElement("li");
+    age.innerText = "Age: " + e.age;
+    const phoneNo = document.createElement("li");
+    phoneNo.innerText = e.phoneNo;
+    const email = document.createElement("li");
+    email.innerText = e.email;
+    const jerseyNumber = document.createElement("li");
+    jerseyNumber.innerText = e.jerseyNumber;
+    const cnicNumber = document.createElement("li");
+    cnicNumber.innerText = "CNIC: " + e.cnic;
+    const position = document.createElement("li");
+    position.innerText = "Favourite Position: " + e.position;
+    const rating = document.createElement("li");
+    rating.innerText = "Rating out of 10: " + e.rating;
+    card.addEventListener("click", () => crad(e));
+    card.appendChild(name);
+    card.appendChild(jerseyNumber);
+    cardContainer.appendChild(card);
+  });
 
-    const field7 = createField('Phone No.', './images-icons/icons8-phone-24.png', '^\\+?[0-9]{10,15}$', 'e.g. +1234567890', 'tel', 'phone');
-    column2.appendChild(field7);
+  input.addEventListener("input", () => {
+    cardContainer.innerHTML = "";
+    const inputvalue2 = input.value.toLowerCase().trim();
 
-    const field8 = createField('CNIC', './images-icons/icons8-identification-documents-24.png', '^[0-9]{5}-[0-9]{7}-[0-9]$', 'e.g. 12345-6789012-3', 'text', 'cnic');
-    column2.appendChild(field8);
+    peopleData
+      .filter((f) => f.name.toLowerCase().includes(inputvalue2))
+      .forEach((u) => {
+        const card = document.createElement("div"); // Create a new card for each item
+        card.classList.add("card"); // Optional: Add a class to the card for styling
+        card.innerHTML = `
+                  <img src="${u.image}" alt="${u.name}">
+                  <h3>${u.name}</h3>
+                  <li>${u.jerseyNumber}</li>
+                `;
+        card.addEventListener("click", () => crad(u)); 
+        cardContainer.appendChild(card);
+      });
+    container.appendChild(cardContainer); 
+  });
 
-    const columns = document.createElement('div');
-    columns.classList.add('columns');
-    columns.appendChild(column1);
-    columns.appendChild(column2);
-    formSubmission.appendChild(columns);
+  container.appendChild(cardContainer);
+};
 
-    const submit = document.createElement('div');
-    submit.classList.add('submit');
-const loginlink=document.createElement('a');
-loginlink.href = "../index.html";
-    const checkbtn = document.createElement('input');
-    checkbtn.setAttribute('type', 'checkbox');
-    checkbtn.setAttribute('id', 'cbtn');
-
-    const label = document.createElement('label');
-    label.classList.add('labell');
-    label.setAttribute('for', 'cbtn');
-
-    const statement = document.createElement('p');
-    statement.innerText = "I agree to all statements in ";
-
-    const spann = document.createElement('span');
-    spann.classList.add('sp');
-    spann.textContent = "Terms of Service.";
-
-    statement.appendChild(spann);
- 
-    label.appendChild(checkbtn);
-    label.appendChild(statement);
-
-    submit.appendChild(label);
-    const submitButton = document.createElement('button');
-    submitButton.innerText="Submit";
-    submitButton.classList.add('submitButton');
-    submitButton.setAttribute('type', 'submit');
-    submitButton.setAttribute('value', 'Register');
-    submitButton.setAttribute('id', 'submitButton');
-    loginlink.appendChild(submitButton)
-    submit.appendChild(loginlink);
-    formSubmission.appendChild(submit);
-    formContainer.appendChild(formSubmission);
-    page.appendChild(formContainer);
-
-    formSubmission.addEventListener('submit', function(event) {
-        let valid = true;
-        const inputs = formSubmission.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"]');
-        inputs.forEach(input => {
-            const pattern = new RegExp(input.dataset.pattern);
-            if (!pattern.test(input.value)) {
-                valid = false;
-                input.style.borderColor = 'red';
-                const errorElement = input.parentElement.nextSibling;
-                if (errorElement) errorElement.style.display = 'block';
-            } else {
-                input.style.borderColor = 'initial';
-                const errorElement = input.parentElement.nextSibling;
-                if (errorElement) errorElement.style.display = 'none';
-            }
-        });
-        if (!valid) {
-            event.preventDefault();
-            alert('Please fill out all fields correctly.');
-        }
-    });
-});
+headerGen();
+cardsGen();

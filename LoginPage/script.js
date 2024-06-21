@@ -54,22 +54,23 @@ logSection.classList.add('logsection');
 // Create and configure the register link
 const registerLink = document.createElement('a');
 registerLink.innerText = "CLICK TO REGISTER";
-registerLink.href = "../reg.html";
+registerLink.href = "./reg.html";
 
 // Create and configure the login button
-const loginBtn = document.createElement('button');
-loginBtn.classList.add("btn");
+// const loginBtn = document.createElement('button');
+
 
 // Append the login button to a link element
 const loginLinkContainer = document.createElement('a');
 loginLinkContainer.innerText="Login";
-loginLinkContainer.href = "../main.html";
-loginBtn.appendChild(loginLinkContainer);
-loginLinkContainer.classList.add("btntag");
+loginLinkContainer.href = "./main.html";
+loginLinkContainer.classList.add("btn");
+// loginBtn.appendChild(loginLinkContainer);
+// loginLinkContainer.classList.add("btntag");
 
 // Append the register link and login button to the log section
 logSection.appendChild(registerLink);
-logSection.appendChild(loginBtn);
+logSection.appendChild(loginLinkContainer);
 
 // Append all created elements to the formSubmission (which is assumed to be a form element)
 formSubmission.appendChild(heading);
